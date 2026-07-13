@@ -1,142 +1,147 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-type Mode = "apply" | "hire";
+type Audience = "student" | "company";
+
+const SWAP_INTERVAL_MS = 5000;
 
 const content: Record<
-  Mode,
+  Audience,
   {
     eyebrow: string;
-    headline: React.ReactNode;
-    subtext: string;
-    ctaLabel: string;
-    ctaHref: string;
-    badgeTitle: string;
-    badgeSubtitle: string;
+    heading: [string, string];
+    description: string;
+    cta: string;
+    href: string;
+    image: string;
+    imageAlt: string;
   }
 > = {
-  apply: {
-    eyebrow: "For students",
-    headline: (
-      <>
-        Internships, <span className="text-[#1f5993]">tailored to your programme.</span>
-      </>
-    ),
-    subtext:
-      "Build a profile, get matched to opportunities based on what you actually study, and track every application in one place.",
-    ctaLabel: "Find Opportunities",
-    ctaHref: "/login/student",
-    badgeTitle: "92% match",
-    badgeSubtitle: "Frontend Developer Intern",
+  student: {
+    eyebrow: "We help you find real opportunities",
+    heading: ["Launch Your Career", "With HR Support"],
+    description:
+      "Build your profile, get matched with internships and entry-level roles, and get coaching from real HR experts along the way.",
+    cta: "Get Started",
+    href: "/signup/student",
+    image: "/test.png",
+    imageAlt: "Student working on a laptop",
   },
-  hire: {
-    eyebrow: "For companies",
-    headline: (
-      <>
-        Connect with <span className="text-[#1f5993]">ready students.</span>
-      </>
-    ),
-    subtext:
-      "Post internship opportunities and manage every applicant from one dashboard.",
-    ctaLabel: "Find Student",
-    ctaHref: "/login/company",
-    badgeTitle: "1,200+ students",
-    badgeSubtitle: "Ready across 40+ programmes",
+  company: {
+    eyebrow: "We Help You Find Skilled Talent",
+    heading: ["Hire Skilled Talent", "With HR Support"],
+    description:
+      "Our HR experts use a clean workflow to attract the right candidates, screen them, and deliver top talent that fits your company culture.",
+    cta: "Get Started",
+    href: "/signup/company",
+    image: "/test.png",
+    imageAlt: "Professional working on a laptop in an office",
   },
 };
 
 export default function Hero() {
-  const [mode, setMode] = useState<Mode>("apply");
-  const [shake, setShake] = useState(false);
-  const [interacted, setInteracted] = useState(false);
-  const active = content[mode];
+  const [audience, setAudience] = useState<Audience>("student");
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const stop = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, []);
+
+  const start = useCallback(() => {
+    if (intervalRef.current) return;
+
+    intervalRef.current = setInterval(() => {
+      setAudience((prev) => (prev === "student" ? "company" : "student"));
+    }, SWAP_INTERVAL_MS);
+  }, []);
 
   useEffect(() => {
-    if (interacted) return;
-    const trigger = () => {
-      setShake(true);
-      setTimeout(() => setShake(false), 600);
-    };
-    const initial = setTimeout(trigger, 1200);
-    const interval = setInterval(trigger, 4500);
+    start();
     return () => {
-      clearTimeout(initial);
-      clearInterval(interval);
+      stop();
     };
-  }, [interacted]);
+  }, [start, stop]);
 
-  const handleToggle = (next: Mode) => {
-    setMode(next);
-    setInteracted(true);
-    setShake(false);
-  };
+  const data = content[audience];
 
   return (
-    <section className="relative overflow-hidden px-6 pb-14 pt-10 md:pb-16 md:pt-14">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-2 md:gap-20">
-        <div className="flex flex-col items-center text-center md:items-start md:text-left">
-          <div
-            className={`inline-flex items-center gap-1 rounded-full border border-[#E4E7EC] bg-[#F5F6F8] p-1 ${
-              shake ? "animate-shake-hint" : ""
-            }`}
-          >
-            <button
-              onClick={() => handleToggle("hire")}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                mode === "hire"
-                  ? "bg-[#1f5993] text-white"
-                  : "text-[#111318] hover:text-[#0B0F19]"
-              }`}
-            >
-              Hire
-            </button>
-            <button
-              onClick={() => handleToggle("apply")}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                mode === "apply"
-                  ? "bg-[#1f5993] text-white"
-                  : "text-[#111318] hover:text-[#0B0F19]"
-              }`}
-            >
-              Apply
-            </button>
+    <section className="mx-auto max-w-7xl px-6 pb-16 pt-6 lg:px-10 lg:pt-10">
+      <div
+        className="grid grid-cols-1 gap-6 lg:grid-cols-2"
+        onMouseEnter={stop}
+        onMouseLeave={start}
+      >
+        {/* Image */}
+        <div
+          key={`img-${audience}`}
+          className="animate-fade-in-up overflow-hidden rounded-[28px]"
+        >
+          <Image
+            src={data.image}
+            alt={data.imageAlt}
+            width={900}
+            height={900}
+            priority
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div
+          key={`copy-${audience}`}
+          className="animate-fade-in-up flex flex-col justify-center rounded-[28px] bg-[#12332B] px-8 py-6 sm:px-12 sm:py-8"
+        >
+          <div className="mb-5 inline-flex w-fit items-center gap-2 text-sm font-medium text-[#A8F3D2]">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M8 1L14.5 4.8V11.2L8 15L1.5 11.2V4.8L8 1Z"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M8 8L14.5 4.8M8 8L1.5 4.8M8 8V15"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {data.eyebrow}
           </div>
 
-          <p className="mt-5 text-xs font-medium uppercase tracking-widest text-[#1f5993]">
-            {active.eyebrow}
-          </p>
-
-          <h1 className="mt-2 text-4xl font-black leading-tight tracking-tight md:text-5xl">
-            {active.headline}
+          <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl">
+            {data.heading[0]}
+            <br />
+            {data.heading[1]}
           </h1>
 
-          <p className="mt-5 max-w-md text-base leading-relaxed text-[#111318]">
-            {active.subtext}
+          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
+            {data.description}
           </p>
 
-          <div className="mt-7 flex flex-wrap items-start gap-3">
-            <a
-              href={active.ctaHref}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#1f5993] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#264DBD]"
-            >
-              {active.ctaLabel}
-              <ArrowRight size={16} />
-            </a>
-          </div>
-        </div>
-        <div className="relative mx-auto hidden w-full max-w-md md:ml-auto md:mr-0 md:block">
-          <div className="relative aspect-4/5 w-full">
-            <Image
-              src="/test.png"
-              alt="Student ready for their internship"
-              fill
-              className="object-contain object-bottom"
-              priority
-            />
-          </div>
+          <Link
+            href={data.href}
+            className="group mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[#A8F3D2] py-3 pl-6 pr-3 text-sm font-semibold text-[#12332B] transition-colors hover:bg-[#7FE0B0]"
+          >
+            {data.cta}
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#12332B] text-[#A8F3D2] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M3 11L11 3M11 3H4M11 3V10"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </Link>
         </div>
       </div>
     </section>
