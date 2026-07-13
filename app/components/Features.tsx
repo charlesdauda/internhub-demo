@@ -52,7 +52,7 @@ export default function Features() {
     <section id="features" className="border-t border-[#E4E7EC] px-6 py-12 md:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-xl">
-          <p className="text-xs font-medium uppercase tracking-widest text-[#0A66C2]">
+          <p className="text-xs font-medium uppercase tracking-widest text-[#1f5993]">
             Why InternshipHub
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -70,9 +70,9 @@ export default function Features() {
             return (
               <div
                 key={feature.title}
-                className="w-[78%] shrink-0 snap-start rounded-2xl border border-[#E4E7EC] bg-[#F5F6F8] p-4 transition-colors hover:border-[#0A66C2]/60 sm:w-[45%] md:w-auto md:shrink md:p-5"
+                className="w-[78%] shrink-0 snap-start rounded-2xl border border-[#E4E7EC] bg-[#F5F6F8] p-4 transition-colors hover:border-[#004182]/60 sm:w-[45%] md:w-auto md:shrink md:p-5"
               >
-                <Icon size={18} className="text-[#0A66C2]" />
+                <Icon size={18} className="text-[#1f5993]" />
                 <h3 className="mt-3 text-base font-semibold text-[#0B0F19]">
                   {feature.title}
                 </h3>

@@ -60,8 +60,8 @@ export default function Header() {
                   onClick={() => toggle(key)}
                   className={
                     isPrimary
-                      ? "rounded-md bg-[#2F5FE0] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#264DBD]"
-                      : "rounded-md px-4 py-2 text-sm font-medium text-[#0B0F19] transition-colors hover:text-[#2F5FE0]"
+                      ? "rounded-md bg-[#1f5993] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#004182]"
+                      : "rounded-md px-4 py-2 text-sm font-medium text-[#0B0F19] transition-colors hover:text-[#004182]"
                   }
                 >
                   {menu.label}

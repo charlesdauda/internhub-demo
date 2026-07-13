@@ -22,7 +22,7 @@ const content: Record<
     eyebrow: "For students",
     headline: (
       <>
-        Internships, <span className="text-[#2F5FE0]">tailored to your programme.</span>
+        Internships, <span className="text-[#1f5993]">tailored to your programme.</span>
       </>
     ),
     subtext:
@@ -36,7 +36,7 @@ const content: Record<
     eyebrow: "For companies",
     headline: (
       <>
-        Connect with <span className="text-[#2F5FE0]">ready students.</span>
+        Connect with <span className="text-[#1f5993]">ready students.</span>
       </>
     ),
     subtext:
@@ -87,7 +87,7 @@ export default function Hero() {
               onClick={() => handleToggle("hire")}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                 mode === "hire"
-                  ? "bg-[#2F5FE0] text-white"
+                  ? "bg-[#1f5993] text-white"
                   : "text-[#111318] hover:text-[#0B0F19]"
               }`}
             >
@@ -97,7 +97,7 @@ export default function Hero() {
               onClick={() => handleToggle("apply")}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                 mode === "apply"
-                  ? "bg-[#2F5FE0] text-white"
+                  ? "bg-[#1f5993] text-white"
                   : "text-[#111318] hover:text-[#0B0F19]"
               }`}
             >
@@ -105,7 +105,7 @@ export default function Hero() {
             </button>
           </div>
 
-          <p className="mt-5 text-xs font-medium uppercase tracking-widest text-[#2F5FE0]">
+          <p className="mt-5 text-xs font-medium uppercase tracking-widest text-[#1f5993]">
             {active.eyebrow}
           </p>
 
@@ -120,7 +120,7 @@ export default function Hero() {
           <div className="mt-7 flex flex-wrap items-start gap-3">
             <a
               href={active.ctaHref}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#2F5FE0] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#264DBD]"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#1f5993] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#264DBD]"
             >
               {active.ctaLabel}
               <ArrowRight size={16} />

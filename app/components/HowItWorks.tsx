@@ -19,7 +19,7 @@ function StepColumn({
 }) {
   return (
     <div className="rounded-xl border border-[#E4E7EC] bg-[#F5F6F8] p-6 md:p-8">
-      <p className="text-xs font-medium uppercase tracking-widest text-[#0A66C2]">
+      <p className="text-xs font-medium uppercase tracking-widest text-[#1f5993]">
         {label}
       </p>
       <div className="mt-6 flex flex-col gap-6">
@@ -44,7 +44,7 @@ export default function HowItWorks() {
     <section id="how-it-works" className="border-t border-[#E4E7EC] px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-xl">
-          <p className="text-xs font-medium uppercase tracking-widest text-[#0A66C2]">
+          <p className="text-xs font-medium uppercase tracking-widest text-[#1f5993]">
             How it works
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
