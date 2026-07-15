@@ -22,7 +22,6 @@ export default function NavDropdown({
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const menuId = useId();
 
-  // Close when tapping/clicking anywhere outside (mobile + desktop)
   useEffect(() => {
     function handleOutside(e: MouseEvent | TouchEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
@@ -37,7 +36,6 @@ export default function NavDropdown({
     };
   }, []);
 
-  // Close on Escape for keyboard users
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
@@ -53,8 +51,6 @@ export default function NavDropdown({
     }
   };
 
-  // Desktop: open immediately on hover, close with a short delay so the
-  // cursor can travel from the button down into the menu without it vanishing.
   const handleMouseEnter = () => {
     clearCloseTimeout();
     setOpen(true);
@@ -65,11 +61,11 @@ export default function NavDropdown({
   };
 
   const baseBtn =
-    "inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-dark/40 focus-visible:ring-offset-2 focus-visible:ring-offset-page";
+    "inline-flex items-center gap-1.5 rounded-sm px-5 py-2.5 text-sm font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0b345c]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5f8fa]";
   const styles =
     variant === "filled"
-      ? "bg-brand-dark text-white hover:bg-brand-dark-700"
-      : "text-ink hover:bg-ink/5";
+      ? "bg-[#0b345c] text-white hover:bg-[#173d63]"
+      : "text-[#000000] hover:bg-[#172b4d]/5";
 
   return (
     <div
@@ -108,7 +104,7 @@ export default function NavDropdown({
       <div
         id={menuId}
         role="menu"
-        className={`absolute right-0 top-full z-50 mt-2 w-56 origin-top-right rounded-2xl border border-black/5 bg-white p-1.5 shadow-xl shadow-black/10 transition-all duration-150 ${
+        className={`absolute right-0 top-full z-50 mt-2 w-56 origin-top-right rounded-sm border border-black/5 bg-white p-1.5 shadow-xl shadow-black/10 transition-all duration-150 ${
           open
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-1 pointer-events-none"
@@ -119,7 +115,7 @@ export default function NavDropdown({
             key={item.href}
             href={item.href}
             role="menuitem"
-            className="flex items-center rounded-xl px-3.5 py-2.5 text-sm font-medium text-ink hover:bg-brand-mint/25 transition-colors"
+            className="flex items-center rounded-sm px-3.5 py-2.5 text-sm font-medium text-[#000000] hover:text-[#051b32] transition-colors"
             onClick={() => setOpen(false)}
           >
             {item.label}
