@@ -55,7 +55,7 @@ export default function Hero() {
     <section className="mx-auto max-w-3xl px-6 pb-16 pt-6 md:max-w-4xl lg:max-w-5xl lg:pt-10">
       <div
         key={audience}
-        className="animate-fade-in-up flex flex-col items-center rounded-[28px] bg-[#0b345c] px-8 py-14 text-center sm:px-16 sm:py-16 md:rounded-none md:bg-transparent md:px-0 md:py-6"
+        className="animate-fade-in-up flex flex-col items-center rounded-sm bg-[#0b345c] px-8 py-14 text-center sm:px-16 sm:py-16 md:rounded-none md:bg-transparent md:px-0 md:py-6"
       >
         <div className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-[#70B5F9] md:text-black">
           <svg
