@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 sm:py-5 lg:px-10">
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-base font-bold tracking-tight text-[#000000] sm:text-lg">
-            InternshipHub
+            iHub
           </span>
         </Link>
 
