@@ -92,7 +92,9 @@ export default function Hero() {
           {data.description}
         </p>
 
-       <Link href={data.href} className="mt-8 inline-flex items-center rounded-sm bg-[#70B5F9] px-6 py-3 text-sm font-semibold text-[#0b345c] transition-all duration-200 md:bg-[#0b345c] md:px-9 md:py-4 md:text-base md:font-bold md:tracking-tight md:text-white md:shadow-lg md:shadow-[#0b345c]/25 md:hover:bg-[#173d63] md:hover:-translate-y-0.5 md:hover:shadow-xl md:hover:shadow-[#0b345c]/30"
+       <Link href={data.href} className="mt-8 inline-flex items-center rounded-sm bg-[#70B5F9] px-6 py-3 text-sm font-semibold 
+       text-[#0b345c] transition-all duration-200 md:bg-[#0b345c] md:px-9 md:py-4 md:text-base md:font-bold md:tracking-tight
+        md:text-white md:hover:bg-[#173d63] md:hover:-translate-y-0.5"
           >
          {data.cta}
          </Link>
