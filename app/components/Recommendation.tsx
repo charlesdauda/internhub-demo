@@ -15,6 +15,10 @@ const Recommendation = () => {
                 </div>
                 <a href="#" className="inline-flex text-sm text-blue-600 shrink-0 gap-2">View more<span><ArrowRight size={18} /></span></a>
             </div>
+            {/* Internship Cards*/}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-10">
+                
+            </div>
         </section>
     )
 }
