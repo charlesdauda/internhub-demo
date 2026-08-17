@@ -61,7 +61,7 @@ export const Sidebar = () => {
             priority
             className="h-11 w-auto object-contain"
           />
-          <span className="font-extrabold text-blue-800">Internship Hub</span>
+          <span className="font-extrabold text-black">Internship Hub</span>
         </Link>
       </div>
 

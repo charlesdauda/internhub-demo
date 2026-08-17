@@ -35,7 +35,7 @@ export const Navbar = ({
         <input
           type="text"
           placeholder="Search internships, companies or skills..."
-          className="w-90 rounded-xl border border-border bg-white py-2.5 pl-10 pr-14 text-[14px] font-medium text-brand-navy placeholder:text-gray-600 outline-none transition focus:border-brand-blue focus:bg-white"
+          className="w-90 rounded-lg border border-border bg-white py-2.5 pl-10 pr-14 text-[14px] font-medium text-brand-navy placeholder:text-gray-600 outline-none transition focus:border-brand-blue focus:bg-white"
         />
       </label>
 
@@ -43,7 +43,7 @@ export const Navbar = ({
         <button
           type="button"
           aria-label="Messages"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-black transition hover:border-brand-blue/40 hover:text-brand-blue"
+          className="flex h-10 w-10 items-center justify-center bg-white text-black transition hover:border-brand-blue/40 hover:text-brand-blue"
         >
           <MessageCircle className="h-4.5 w-4.5" />
         </button>
@@ -51,7 +51,7 @@ export const Navbar = ({
         <button
           type="button"
           aria-label="Notifications"
-          className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-black transition hover:border-brand-blue/40 hover:text-brand-blue"
+          className="relative flex h-10 w-10 items-center justify-center bg-white text-black transition hover:border-brand-blue/40 hover:text-brand-blue"
         >
           <Bell className="h-4.5 w-4.5" />
           <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-rose-500 ring-2 ring-white" />
