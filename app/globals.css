@@ -1,13 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f8fa;
-  --foreground: #172b4d;
+  /* Base surface + text — kept dark/bold on purpose, not a faint gray-on-gray UI */
+  --page: white;
+  --ink: #070c2e;
+  --background: white;
+  --foreground: #070c2e;
+
+  --surface: #ffffff;
+  --surface-muted: #f7f8fd;
+  --border: #e3e6f2;
+  --muted: #6b7290;
+
+  /* Brand palette sampled directly from the InternshipHub logo */
+  --brand-navy: #070c2e;
+  --brand-navy-soft: #161d42;
+  --brand-blue: #2440f7;
+  --brand-blue-dark: #1a2fd1;
+  --brand-blue-light: #eaefff;
+  --brand-indigo: #3b2af2;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-soft: var(--brand-navy-soft);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-dark: var(--brand-blue-dark);
+  --color-brand-blue-light: var(--brand-blue-light);
+  --color-brand-indigo: var(--brand-indigo);
+
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -15,6 +46,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01" 1;
+  -webkit-font-smoothing: antialiased;
 }
 
 @keyframes fadeInUp {
