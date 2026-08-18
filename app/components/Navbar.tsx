@@ -27,7 +27,7 @@ export const Navbar = ({
         alt="InternshipHub"
         width={120}
         height={32}
-        className="h-8 w-auto object-contain lg:hidden"
+        className="h-8 w-full object-contain lg:hidden"
       />
 
       <label className="relative hidden max-w-md flex-1 items-center sm:flex">

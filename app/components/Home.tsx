@@ -1,10 +1,10 @@
 "use client";
-//import Image from "next/image";
+import Image from "next/image";
 
 const Home = () => {
   return (
-    <section className="animate-fade-in-up my-1 overflow-hidden rounded-2xl text-black">
-      <div className="flex min-h-55 -translate-y-2 items-center px-7 py-7 sm:px-9">
+    <section className="animate-fade-in-up my-1 overflow-hidden text-black">
+      <div className="flex min-h-55 -translate-y-2 items-center py-7">
 
         {/* Greeting */}
         <div className="relative z-10 max-w-lg shrink-0">
@@ -17,7 +17,7 @@ const Home = () => {
           </p>
 
           <div className="mt-5 flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            <span className="h-2 w-2 rounded-full bg-emerald-800" />
             <span className="text-xs font-medium text-black">
               128 internships available for you
             </span>
@@ -25,7 +25,7 @@ const Home = () => {
         </div>
 
           {/* Illustration */}
-      { /*<div className="relative ml-14 hidden h-52 w-72 shrink-0 sm:block lg:ml-24 lg:w-80">
+      <div className="relative ml-14 hidden h-52 w-72 shrink-0 sm:block lg:ml-60 lg:w-80">
        <Image
           src="/undraw.png"
           alt="Student searching for internship opportunities"
@@ -34,7 +34,7 @@ const Home = () => {
           sizes="(max-width: 640px) 0px, 320px"
           className="object-contain object-left"
         />
-      </div>  */}
+      </div> 
 
       </div>
     </section>

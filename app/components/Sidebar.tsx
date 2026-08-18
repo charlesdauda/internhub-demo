@@ -45,11 +45,11 @@ export const Sidebar = () => {
 
   const navLinkClasses = (active: boolean) =>
     `group flex items-center justify-between gap-3 rounded-xl px-3.5 py-2.5 text-[14.5px] font-semibold transition-colors ${
-      active ? "text-brand-blue" : "text-black hover:text-brand-blue"
+      active ? "text-black" : "text-black hover:text-brand-blue"
     }`;
 
   return (
-    <aside className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-72 lg:flex-col lg:border-r lg:border-border lg:bg-surface">
+    <aside className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-60 lg:flex-col lg:border-r lg:border-border lg:bg-surface">
       {/* Logo */}
       <div className="flex h-20 items-center border-b border-border px-6">
         <Link href="/" className="flex items-center gap-2.5">
@@ -79,7 +79,7 @@ export const Sidebar = () => {
               <span className="flex items-center gap-3">
                 <Icon
                   className={`h-4.5 w-4.5 ${
-                    active ? "text-brand-blue" : "text-black"
+                    active ? "text-black" : "text-black"
                   }`}
                 />
 
